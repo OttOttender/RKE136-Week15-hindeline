@@ -1,243 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
-
-* {
+/* Reset some basic elements for consistency */
+body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Arial', sans-serif;
 }
 
-html{
-    font-family: 'Roboto', sans-serif;
-    color: #151515;
-    text-align: center;
+/* General body styling */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
 }
 
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; /* Ensure relative positioning */
+}
+
+/* Movie card styling */
 .movie-card {
-    margin-top: 5rem;
-    text-align: center;
-
-    animation: slideFromTop 1s ease-in-out forwards;
-}
-
-.movie-card img {
-    height: 500px;
-    border-radius: 15px;
-
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.movie-card img:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 5px 10px rgba(97, 56, 114, 0.5);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .movie-title {
-    text-transform: uppercase;
-    font-weight: bold;
-
-    animation: slideFromTop 1s ease-in-out forwards;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    background: #333;
+    color: #fff;
+    padding: 10px;
 }
 
-@keyframes slideFromTop {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+.movie-genres {
+    text-align: center;
+    padding: 10px;
+    background: #f7f7f7;
 }
 
-.movie-rating {
+.movie-genres span {
     display: inline-block;
-    border: 1px solid #151515;
-    padding: 0.5rem;
+    margin: 0 5px;
+    padding: 5px 10px;
     border-radius: 5px;
+    background: #ddd;
+    font-size: 14px;
 }
 
-.movie-duration {
-    margin-left: 1rem;
-    letter-spacing: 0.1rem;
+/* Poster container */
+.movie-poster-container {
+    text-align: center;
+    margin: 20px 0;
 }
 
-.movie-duration:before {
-    content:"\2022";
-    font-weight: bold;
-    vertical-align: middle;
+.movie-poster-container img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Movie info container */
+.movie-info-container {
+    padding: 20px;
+    background: #fafafa;
 }
 
 .movie-info-quote {
-    color: #151515a4;
     font-style: italic;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .movie-info-overview-title {
-    text-transform: capitalize;
-    letter-spacing: 0.1rem;
-}
-
-.movie-info-actions {
-    font-size:1.1rem;
-}
-
-.movie-info-actions ul {
-    list-style: none;
-}
-
-.movie-info-actions ul li {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: rgb(3, 37, 65);
-    
-}
-
-.movie-info-actions ul li:hover {
-    transform: scale(1.1);
-}
-
-.movie-info-actions ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer {
-    margin-top: 0.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 18px;
     text-align: center;
-    color: #777;
+}
+
+.movie-info-overview {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Movie info actions */
+.movie-info-actions ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.movie-info-actions a {
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.movie-info-actions a:hover {
+    color: #f39c12;
+}
+
+/* Fixed bot container */
+.bot-container {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+    width: 350px;
+    height: 430px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 footer ul {
-    list-style: none;
-}
-
-footer ul li {
-    display: inline-block;
-    margin-top: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-}
-
-footer ul li a {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #777;
-}
-
-
-.movie-info-container, footer, .movie-genres> *:not(.movie-info-title){
-    opacity: 0;
-
-    animation: fade-in 1s ease-in-out forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes fade-in {
-    100% {opacity: 1;}
-}
-
-.modal { 
-    display: none;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.63);
-    z-index: 2;
-    top: 0;
-    left: 0;
-    text-align: center;
-
-}
-
-.modal-content {
-    background-color: rgb(9, 156, 201);
-
-    margin: 5% auto;
-    padding: 5rem;
-    width: 500px;
-    height: 700px;
-
-    animation: zoom-in 1s;
-}
-
-.modal-content > h1 {
-    color: white;
-}
-
-
-@keyframes zoom-in {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
-}
-
-.closeBtn {
-    float: right;
-    cursor: pointer;
-    font-size: 2rem;
-}
-
-.movie-poster-modal {
-    width: 300px;
-}
-
-.carousel {
-    max-width: 500px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.carousel img {
-    width: 100%;
-
-}
-
-.carousel .carousel__item, 
-.carousel .carousel__item--hidden {
-    display: none;
-}
-
-.carousel .carousel__item--visible {
-    display: block;
-    animation: fadeIn .6s;
-}
-
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-.carousel .carousel__actions {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 
-.carousel .carousel__actions button {
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 50px;
-    cursor: bold;
-    height: 50px;
-    width: 50px;
-    border: 0;
-    background-color: rgb(98, 85, 68, 0.739);
-    font-size: 2rem;
+footer a {
     color: #fff;
-    margin: 0.5rem;
- }
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #f39c12;
+}
+
+footer p {
+    font-size: 14px;
+}
