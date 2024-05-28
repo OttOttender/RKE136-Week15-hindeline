@@ -1,12 +1,10 @@
 const { default: axios } = require('axios');
 const express = require('express');
 const http = require('http');
-const https = require('https');
 const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(express.urlencoded({ exteded:true }));
 app.use(express.json());
 
 
